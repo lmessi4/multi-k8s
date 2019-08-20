@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+    name: walidghallab-com-tls
+spec:
+    secretName: walidghallab-com
+    issuerRef:
+        name: letsencrypt-prod
+        kind: ClusterIssuer
+    commonName: walidghallab.com
+    dnsNames:
+        - walidghallab.com
+        - www.walidghallab.com
+    acme:
+        config:
+            - http01:
+                ingressClass: nginx
+              domains:
+                  - walidghallab.com
+                  - www.walidghallab.com
