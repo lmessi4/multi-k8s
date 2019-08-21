@@ -25,6 +25,7 @@ spec:
                 - path: /api(/|$)(.*)
                   backend:
                       serviceName: server-cluster-ip-service
+                      servicePort: 5000
         - host: www.walidghallab.com
           http:
             paths:
@@ -36,4 +37,3 @@ spec:
                   backend:
                       serviceName: server-cluster-ip-service
                       servicePort: 5000
-            servicePort: 5000
