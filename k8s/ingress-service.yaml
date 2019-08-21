@@ -15,7 +15,18 @@ spec:
             - www.walidghallab.com
           secretName: walidghallab-com
     rules:
-        - http:
+        - host: walidghallab.com
+          http:
+            paths:
+                - path: /()(.*)
+                  backend:
+                      serviceName: client-cluster-ip-service
+                      servicePort: 3000
+                - path: /api(/|$)(.*)
+                  backend:
+                      serviceName: server-cluster-ip-service
+        - host: www.walidghallab.com
+          http:
             paths:
                 - path: /()(.*)
                   backend:
@@ -25,3 +36,4 @@ spec:
                   backend:
                       serviceName: server-cluster-ip-service
                       servicePort: 5000
+            servicePort: 5000
