@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # building docker images.
 docker build -t walidghallab/multi-client:latest -t walidghallab/multi-client:$GIT_SHA -f ./client/Dockerfile ./client
 docker build -t walidghallab/multi-server:latest -t walidghallab/multi-server:$GIT_SHA -f ./server/Dockerfile ./server
